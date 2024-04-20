@@ -27,7 +27,7 @@ const Index = () => {
         duration: 9000,
         isClosable: true,
       });
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } else {
       toast({
         title: "Failed to log in.",
