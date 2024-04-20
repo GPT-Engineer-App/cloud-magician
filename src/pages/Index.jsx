@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChakraProvider, Box, VStack, FormControl, FormLabel, Input, Button, useToast, Heading } from "@chakra-ui/react";
 import { FaSignInAlt } from "react-icons/fa";
 
@@ -6,6 +7,7 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     const response = await fetch("https://backengine-znib.fly.dev/login", {
@@ -25,7 +27,7 @@ const Index = () => {
         duration: 9000,
         isClosable: true,
       });
-      // Redirect to dashboard or enable dashboard view
+      navigate("/dashboard");
     } else {
       toast({
         title: "Failed to log in.",
